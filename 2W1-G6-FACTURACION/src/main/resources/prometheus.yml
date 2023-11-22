@@ -1,0 +1,24 @@
+# my global config
+global:
+  scrape_interval: 1m
+  evaluation_interval: 1m
+  # scrape_timeout set global default 10s
+
+#Load rules once and periodically evaluate them according to the global 'evalutaion_interval'
+rule_files:
+  # - set hear rules
+
+#A scrape configuration containing exactly one endpoint to scrape:
+#Here it's Prometheus itself.
+scrape_configs:
+  - job_name: 'prometheus'
+    # metrics_path defaults to '/metrics'|
+    # scheme defaults to 'http'
+    static_configs:
+      - targets: ['127.0.0.1:9090']
+
+  - job_name: 'spring-actuator'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['127.0.0.1:8081'] #REPLACE WITH YOUR OWN IP

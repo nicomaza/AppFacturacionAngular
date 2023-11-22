@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row bg-secundario">
+    <div class="col-md-3 bg-secundario">
+      <!-- Menú lateral -->
+      <div class="card text-center sidebar text-white bg-custom-blue">
+        <div class="card-header">
+          <span class="fs-4">Facturas</span>
+          <hr />
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a
+                class="nav-link menu-option-custom"
+                routerLink="/ConsultarPedidos"
+                >Pedidos pendientes</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link menu-option-custom"
+                routerLink="/GestionarFactura"
+                >Gestionar Factura</a
+              >
+            </li>
+            <li class="nav-item ">
+              <a
+                class="nav-link menu-option-custom"
+                routerLink="/Reportes"
+              >
+                Reportes
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link menu-option-custom dropdown-toggle"
+                (click)="dropdown()"
+              >
+                Parametros
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="abrirDropdown">
+              <a class="nav-link menu-option-custom-secondary" (click)="modalPaymentMethod()">FormaPago</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <!-- Contenido principal (router-outlet) -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
